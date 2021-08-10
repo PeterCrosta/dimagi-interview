@@ -1,29 +1,40 @@
 import { useState } from 'react';
 import SearchBar from './SearchBar';
 import SingleLocationPreview from './SingleLocationPreview';
+import AllUserLocations from './AllUserLocations';
 
 function App() {
   const [locations, setLocations] = useState([]);
   const [singleLocation, setSingleLocation] = useState({});
   const [locationChosen, setLocationChosen] = useState(false);
+  const [users, setUsers] = useState([]);
 
 
   return (
     <div className="App">
       <SearchBar 
-        location={singleLocation}
+        singleLocation={singleLocation}
         setLocations={setLocations}
+        locationChosen={locationChosen}
+        setLocationChosen={setLocationChosen}
+        setUsers={setUsers}
+        users={users}
       />
       {locationChosen ? (
         <div>
-        <span>Your location: {singleLocation.name}, {singleLocation.countryName}</span>
-          <button
+          <SingleLocationPreview
+            loc={singleLocation}
+            setSingleLocation={setSingleLocation}
+            setLocationChosen={setLocationChosen}
+            locationChosen={locationChosen}
+          />
+          {/* <button
             type='button'
             onClick={() => {
               setLocationChosen(false)
               setSingleLocation({})
             }}
-            >X</button>
+            >X</button> */}
 
         </div>
 
@@ -39,6 +50,11 @@ function App() {
         </div>
       ))
       }
+      <h1>Most recent check-ins</h1>
+      <AllUserLocations 
+        setUsers={setUsers}
+        users={users}
+      />
     </div>
   );
 }

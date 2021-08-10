@@ -1,0 +1,27 @@
+import secrets from './secrets';
+
+const SingleUserLocation = props => {
+    const {
+        countryName,
+        // email,
+        lat,
+        lng,
+        name
+    } = props.user;
+
+    return (
+        <div className='single-user-container' >
+            <img
+                src={`https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=10&size=150x100&maptype=roadmap&markers=color:blue%7C${lat},${lng}&key=${secrets.mapsApiKey}`}
+                alt='user location'
+            />
+            <div className='single-user-text'>
+                <h3>{name}</h3>
+                <h3>{countryName}</h3>
+            </div>
+        </div>
+    )
+
+}
+
+export default SingleUserLocation

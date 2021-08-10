@@ -24,14 +24,13 @@ const SingleLocationPreview = props => {
                 <h3>{countryName}</h3>
             </div>
             {locationChosen ? (
-                null
-                // <button
-                //     type='button'
-                //     onClick={() => {
-                //         setLocationChosen(false);
-                //         setSingleLocation({});
-                //     }}
-                // >X</button>
+                <button
+                    type='button'
+                    onClick={() => {
+                        setLocationChosen(false);
+                        setSingleLocation({});
+                    }}
+                >X</button>
             ) : (
                     <button 
                         type='button'
