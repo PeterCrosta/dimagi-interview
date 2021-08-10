@@ -1,9 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import secrets from './secrets'
 
 const SearchBar = props => {
+    const {
+        // locations, 
+        setLocations
+    } = props
+
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
+
+    useEffect(() => {
+        const searchLocations = async () => {
+            const searchStr = `http://api.geonames.org/searchJSON?q=${location}&maxRows=10&username=${secrets.geoNamesUsername}&password=${secrets.geoNamesPassword}`;
+
+            try {
+
+                const {data} = await axios.get(searchStr);
+                // console.log(data.geonames)
+                setLocations(data.geonames)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        if (location.length) searchLocations()
+    }, [location, setLocations])
 
     return (
         <div id='search-bar'>

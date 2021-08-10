@@ -1,46 +1,44 @@
 import { useState } from 'react';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import SingleLocationPreview from './SingleLocationPreview';
 
 function App() {
-  // const [email, setEmail] = useState('');
-  // const [name, setName] = useState('');
-  // const [location, setLocation] = useState('');
+  const [locations, setLocations] = useState([]);
+  const [singleLocation, setSingleLocation] = useState({});
+  const [locationChosen, setLocationChosen] = useState(false);
 
 
   return (
     <div className="App">
-      <SearchBar />
-      {/* <header className="App-header">
-        <form className='new-location-form'>
-          <input
-            type='text'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
-            }} 
-          />
-          <input
-            type='text'
-            placeholder='Enter name'
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value)
-            }} 
-          />
-          <input
-            type='text'
-            placeholder='Enter location'
-            value={location}
-            onChange={(e) => {
-              setLocation(e.target.value)
-            }} 
-          />
+      <SearchBar 
+        location={singleLocation}
+        setLocations={setLocations}
+      />
+      {locationChosen ? (
+        <div>
+        <span>Your location: {singleLocation.name}, {singleLocation.countryName}</span>
           <button
-            type='submit'
-          >Add location</button> 
-        </form>
-      </header> */}
+            type='button'
+            onClick={() => {
+              setLocationChosen(false)
+              setSingleLocation({})
+            }}
+            >X</button>
+
+        </div>
+
+      ): 
+      locations.map((loc, idx) => (
+        <div key={idx}>
+          <SingleLocationPreview
+            loc={loc}
+            setSingleLocation={setSingleLocation}
+            setLocationChosen={setLocationChosen}
+            locationChosen={locationChosen}
+          />
+        </div>
+      ))
+      }
     </div>
   );
 }
