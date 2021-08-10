@@ -29,7 +29,8 @@ const SearchBar = props => {
                 console.error(error);
             }
         };
-        if (location.length) searchLocations()
+        if (location.length) searchLocations();
+        else setLocations([]);
     }, [location, setLocations]);
 
     const handleSubmit = () =>{

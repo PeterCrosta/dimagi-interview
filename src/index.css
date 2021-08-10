@@ -16,3 +16,28 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.single-user-container {
+  display: flex;
+  margin: 2% 2% 2% 2%;
+}
+
+.single-user-text {
+  margin-left: 2%;
+}
+
+.single-location-preview-container {
+  display: flex;
+  margin: 2% 2% 2% 2%;
+  align-items: center;
+}
+
+.location-preview-text-conatiner {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.location-button {
+  height: 30px;
+  width: 35px;
+}

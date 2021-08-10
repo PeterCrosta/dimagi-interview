@@ -1,5 +1,5 @@
 import { locations } from "./firebase";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import SingleUserLocation from "./SingleUserLocation";
 
 const AllUserLocations = props => {

@@ -28,14 +28,6 @@ function App() {
             setLocationChosen={setLocationChosen}
             locationChosen={locationChosen}
           />
-          {/* <button
-            type='button'
-            onClick={() => {
-              setLocationChosen(false)
-              setSingleLocation({})
-            }}
-            >X</button> */}
-
         </div>
 
       ): 

@@ -26,6 +26,7 @@ const SingleLocationPreview = props => {
             {locationChosen ? (
                 <button
                     type='button'
+                    className='location-button'
                     onClick={() => {
                         setLocationChosen(false);
                         setSingleLocation({});
@@ -34,6 +35,7 @@ const SingleLocationPreview = props => {
             ) : (
                     <button 
                         type='button'
+                        className='location-button'
                         onClick={() => {
                             setLocationChosen(true);
                             setSingleLocation(props.loc);
