@@ -40,7 +40,8 @@ const SearchBar = props => {
             email,
             countryName,
             lat,
-            lng
+            lng,
+            date: new Date().toString()
         };
 
         locations
