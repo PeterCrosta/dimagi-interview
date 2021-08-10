@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import SearchBar from './SearchBar'
 
 function App() {
+  // const [email, setEmail] = useState('');
+  // const [name, setName] = useState('');
+  // const [location, setLocation] = useState('');
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar />
+      {/* <header className="App-header">
+        <form className='new-location-form'>
+          <input
+            type='text'
+            placeholder='Enter email'
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }} 
+          />
+          <input
+            type='text'
+            placeholder='Enter name'
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value)
+            }} 
+          />
+          <input
+            type='text'
+            placeholder='Enter location'
+            value={location}
+            onChange={(e) => {
+              setLocation(e.target.value)
+            }} 
+          />
+          <button
+            type='submit'
+          >Add location</button> 
+        </form>
+      </header> */}
     </div>
   );
 }
